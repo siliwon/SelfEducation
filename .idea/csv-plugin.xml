@@ -17,6 +17,20 @@
             </Attribute>
           </value>
         </entry>
+        <entry key="\LearningDjango\env\wisdompets\wisdompets\urls.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
+        <entry key="\PythonOOP\Ch 1\class_start.py">
+          <value>
+            <Attribute>
+              <option name="separator" value=":" />
+            </Attribute>
+          </value>
+        </entry>
       </map>
     </option>
   </component>

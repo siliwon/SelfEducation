@@ -30,5 +30,5 @@ print(b2.getprice())
 b2.setdiscount(0.25)
 print(b2.getprice())
 
-print(b2._discount)
+# print(b2.__secret)
 print(b2._Book__secret)
