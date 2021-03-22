@@ -1,7 +1,14 @@
 
+#
+# def main_function(value):
+#     name = value
+#     def inner_function():
+#         print('hello', name)
+#
+#     return inner_function
 
-def main_function():
-    def inner_function():
-        print('hello')
+def adder(value):
+    def inner(a):
+        return a + value
 
-    return inner_function
+    return inner
