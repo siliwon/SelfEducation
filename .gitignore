@@ -4,3 +4,6 @@
 /2_Stepik_PythonBasicsAndUsage/.idea/
 /4_Coursera_DeepDiveInPython/.idea/
 /PythonAtExamplesAndTasks/.idea/
+.gitignore
+.idea
+.pytest_cache
