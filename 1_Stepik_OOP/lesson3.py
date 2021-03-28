@@ -1,8 +1,45 @@
-class Counter:
+from time import perf_counter
 
-    def __init__(self):
-        print('init object', self)
+class Timer:
 
+    def __init__(self, func):
+        self.fn = func
+
+    def __call__(self, *args, **kwargs):
+        start = perf_counter()
+        print(f'a func called {self.fn.__name__}')
+        result = self.fn(*args, **kwargs)
+        finish = perf_counter()
+        print(f'The func worked {finish - start}')
+        return result
+
+
+def fact(n):
+    pr = 1
+    for i in range(1, n - 1):
+        pr *= i
+    return pr
+
+
+def fib(n):
+    if n < 2:
+        return 1
+    return fib(n - 1) + fib(n - 2)
+
+# class Counter:
+#
+#     def __init__(self):
+#         self.counter = 0
+#         self.sm = 0
+#         self.amount = 0
+#         print('init object', self)
+#
+#     def __call__(self, *args, **kwargs):
+#         self.counter += 1
+#         self.sm += sum(args)
+#         self.amount += len(args)
+#         print(f'our object {self} called {self.counter} times')
+#
 
 # class Point:
 #     def __init__(self, x, y):
