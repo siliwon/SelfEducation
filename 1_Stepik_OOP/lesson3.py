@@ -1,3 +1,52 @@
+class Vector:
+
+    def __init__(self, *args):
+        self.values = list(args)
+
+    def __repr__(self):
+        return str(self.values)
+
+    def __getitem__(self, item):
+        if  0 <= item < len(self.values):
+            return self.values[item]
+        else:
+            raise IndexError("Index out of our collection range")
+
+    def __setitem__(self, key, value):
+        if 0 <= key < len(self.values):
+            self.values[key] = value
+        elif key > len(self.values):
+            diff = key - len(self.values)
+            self.values.extend([0] * diff)
+            self.values[key] = value
+        else:
+            raise IndexError('Index out of our collection range')
+
+    def __delitem__(self, key):
+        if 0 <= key < len(self.values):
+            del self.values[key]
+        else:
+            raise IndexError("Go fuck yourself, you're so stupid!")
+
+# class Rectangle:
+#
+#     def __init__(self, a, b):
+#         self.a = a
+#         self.b = b
+#
+#     def get_rect_area(self):
+#         return self.a * self.b
+#
+#
+# class Square:
+#
+#     def __init__(self, a):
+#         self.a = a
+#
+#     def get_sqare_area(self):
+#         return self.a ** 2
+
+
 from time import perf_counter
 
 class Timer:
@@ -25,6 +74,7 @@ def fib(n):
     if n < 2:
         return 1
     return fib(n - 1) + fib(n - 2)
+
 
 # class Counter:
 #
