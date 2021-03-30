@@ -1,33 +1,55 @@
-class Vector:
+class Student:
+    def __init__(self, name, surname, marks):
+        self.name = name
+        self.surname = surname
+        self.marks = marks
 
-    def __init__(self, *args):
-        self.values = list(args)
+    def __iter__(self):
+        print('iter called')
+        self.index = -1
+        return self
 
-    def __repr__(self):
-        return str(self.values)
+    def __next__(self):
+        return self.name[self.index]
 
-    def __getitem__(self, item):
-        if  0 <= item < len(self.values):
-            return self.values[item]
-        else:
-            raise IndexError("Index out of our collection range")
 
-    def __setitem__(self, key, value):
-        if 0 <= key < len(self.values):
-            self.values[key] = value
-        elif key > len(self.values):
-            diff = key - len(self.values)
-            self.values.extend([0] * diff)
-            self.values[key] = value
-        else:
-            raise IndexError('Index out of our collection range')
 
-    def __delitem__(self, key):
-        if 0 <= key < len(self.values):
-            del self.values[key]
-        else:
-            raise IndexError("Go fuck yourself, you're so stupid!")
+igor = Student('Igor', 'Nicolaev', [3, 4, 4, 5, 4])
 
+for i in igor:
+    print(i)
+
+# class Vector:
+#
+#     def __init__(self, *args):
+#         self.values = list(args)
+#
+#     def __repr__(self):
+#         return str(self.values)
+#
+#     def __getitem__(self, item):
+#         if  0 <= item < len(self.values):
+#             return self.values[item]
+#         else:
+#             raise IndexError("Index out of our collection range")
+#
+#     def __setitem__(self, key, value):
+#         if 0 <= key < len(self.values):
+#             self.values[key] = value
+#         elif key > len(self.values):
+#             diff = key - len(self.values)
+#             self.values.extend([0] * diff)
+#             self.values[key] = value
+#         else:
+#             raise IndexError('Index out of our collection range')
+#
+#     def __delitem__(self, key):
+#         if 0 <= key < len(self.values):
+#             del self.values[key]
+#         else:
+#             raise IndexError("Go fuck yourself, you're so stupid!")
+#
+#
 # class Rectangle:
 #
 #     def __init__(self, a, b):
@@ -45,37 +67,36 @@ class Vector:
 #
 #     def get_sqare_area(self):
 #         return self.a ** 2
+# from time import perf_counter
+#
 
-
-from time import perf_counter
-
-class Timer:
-
-    def __init__(self, func):
-        self.fn = func
-
-    def __call__(self, *args, **kwargs):
-        start = perf_counter()
-        print(f'a func called {self.fn.__name__}')
-        result = self.fn(*args, **kwargs)
-        finish = perf_counter()
-        print(f'The func worked {finish - start}')
-        return result
-
-
-def fact(n):
-    pr = 1
-    for i in range(1, n - 1):
-        pr *= i
-    return pr
-
-
-def fib(n):
-    if n < 2:
-        return 1
-    return fib(n - 1) + fib(n - 2)
-
-
+# class Timer:
+#
+#     def __init__(self, func):
+#         self.fn = func
+#
+#     def __call__(self, *args, **kwargs):
+#         start = perf_counter()
+#         print(f'a func called {self.fn.__name__}')
+#         result = self.fn(*args, **kwargs)
+#         finish = perf_counter()
+#         print(f'The func worked {finish - start}')
+#         return result
+#
+#
+# def fact(n):
+#     pr = 1
+#     for i in range(1, n - 1):
+#         pr *= i
+#     return pr
+#
+#
+# def fib(n):
+#     if n < 2:
+#         return 1
+#     return fib(n - 1) + fib(n - 2)
+#
+#
 # class Counter:
 #
 #     def __init__(self):
@@ -90,7 +111,8 @@ def fib(n):
 #         self.amount += len(args)
 #         print(f'our object {self} called {self.counter} times')
 #
-
+#
+#
 # class Point:
 #     def __init__(self, x, y):
 #         self.x = x
